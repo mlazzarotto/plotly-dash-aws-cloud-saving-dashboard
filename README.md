@@ -2,6 +2,8 @@
 
 A Dash-based dashboard for monitoring and optimizing cloud infrastructure costs.
 
+![](screenshot.webp)
+
 ## Installation
 
 ```bash
