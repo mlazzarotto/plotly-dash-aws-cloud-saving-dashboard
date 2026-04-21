@@ -1,0 +1,552 @@
+/* Cloud Cost Optimization Dashboard - Sleek Bright Dark Theme */
+
+/* New bright dark color palette */
+:root {
+    --bg-page: #111827;
+    --bg-card: #1e2433;
+    --border-color: #2e3a52;
+    --text-primary: #e6edf3;
+    --text-muted: #a0aec0;
+    --accent-orange: #ff7940;
+    --accent-green: #3ddc84;
+    --accent-blue: #60b4ff;
+    --grid-color: rgba(255, 255, 255, 0.06);
+}
+
+/* Global styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background-color: var(--bg-page) !important;
+    color: var(--text-primary) !important;
+    margin: 0;
+    padding: 0;
+}
+
+/* Smooth transitions for interactive elements */
+* {
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* DatePicker custom styling - brighter */
+.dash-datepicker .DateRangePicker {
+    background-color: transparent !important;
+}
+
+.dash-datepicker .DateRangePickerInput {
+    background-color: #252d3d !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px;
+}
+
+.dash-datepicker .DateInput {
+    background-color: transparent !important;
+}
+
+.dash-datepicker .DateInput_input {
+    background-color: transparent !important;
+    color: var(--text-primary) !important;
+    border: none !important;
+    font-size: 14px;
+    padding: 10px 12px;
+    font-weight: 500;
+}
+
+.dash-datepicker .DateRangePicker_picker {
+    background-color: var(--bg-card) !important;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.dash-datepicker .CalendarMonth {
+    background-color: var(--bg-card) !important;
+}
+
+.dash-datepicker .CalendarMonth_caption {
+    color: var(--text-primary) !important;
+    font-weight: 600;
+}
+
+.dash-datepicker .CalendarDay {
+    background-color: var(--bg-page) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+.dash-datepicker .CalendarDay__selected {
+    background-color: var(--accent-orange) !important;
+    color: white !important;
+    font-weight: 600;
+}
+
+.dash-datepicker .CalendarDay__hovered_span {
+    background-color: rgba(255, 121, 64, 0.3) !important;
+    color: var(--text-primary) !important;
+}
+
+.dash-datepicker .CalendarDay__selected_span {
+    background-color: rgba(255, 121, 64, 0.5) !important;
+    color: white !important;
+}
+
+.dash-datepicker .DayPickerNavigation_button {
+    background-color: #252d3d !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+    border-radius: 6px;
+}
+
+.dash-datepicker .DayPickerNavigation_button:hover {
+    background-color: var(--accent-orange) !important;
+    border-color: var(--accent-orange) !important;
+}
+
+/* Target Bootstrap form wrappers that might contain the date picker */
+.form-group:has(.dash-datepicker),
+.form-floating:has(.dash-datepicker),
+div[class*="form"]:has(.dash-datepicker) {
+    background-color: transparent !important;
+}
+
+/* Aggressive: target any direct parent of dash-datepicker */
+*:has(> .dash-datepicker) {
+    background-color: transparent !important;
+}
+
+/* Input bar wrapper */
+.dash-datepicker-input-wrapper {
+    background-color: #252d3d !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px !important;
+    padding: 8px 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    height: 42px !important;
+    box-sizing: border-box !important;
+}
+
+/* Date input fields */
+.dash-datepicker-input {
+    background-color: transparent !important;
+    color: var(--text-primary) !important;
+    border: none !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    padding: 0 !important;
+    outline: none !important;
+}
+
+.dash-datepicker-input::placeholder {
+    color: var(--text-muted) !important;
+}
+
+/* Arrow between dates */
+.dash-datepicker-range-arrow {
+    color: var(--text-muted) !important;
+}
+
+/* Caret icon on the right */
+.dash-datepicker-caret-icon {
+    color: var(--accent-orange) !important;
+}
+
+/* Calendar popup container */
+.dash-datepicker-content {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4) !important;
+    padding: 16px !important;
+}
+
+/* Calendar controls bar (nav arrows + month/year selectors) */
+.dash-datepicker-controls {
+    background-color: transparent !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    padding-bottom: 12px !important;
+    margin-bottom: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+}
+
+/* Month navigation buttons */
+.dash-datepicker-month-nav {
+    background-color: #252d3d !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+    border-radius: 6px !important;
+    padding: 6px 8px !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+}
+
+.dash-datepicker-month-nav:hover {
+    background-color: var(--accent-orange) !important;
+    border-color: var(--accent-orange) !important;
+    color: white !important;
+}
+
+/* Calendar month header */
+.dash-datepicker-calendar-month-header {
+    color: var(--accent-orange) !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    text-align: center !important;
+}
+
+/* Day of week headers (Su, Mo, Tu, etc.) */
+.dash-datepicker-calendar thead th span {
+    color: var(--text-muted) !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+}
+
+/* Calendar table cells */
+.dash-datepicker-calendar td {
+    text-align: center !important;
+    padding: 6px !important;
+}
+
+/* Regular date cells */
+.dash-datepicker-calendar-date-inside {
+    background-color: var(--bg-page) !important;
+    color: var(--text-primary) !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+}
+
+.dash-datepicker-calendar-date-inside:hover {
+    background-color: #252d3d !important;
+}
+
+/* Selected start/end dates */
+.dash-datepicker-calendar-date-selected {
+    background-color: var(--accent-orange) !important;
+    color: white !important;
+    font-weight: 600 !important;
+}
+
+.dash-datepicker-calendar-date-selected:hover {
+    background-color: var(--accent-orange) !important;
+}
+
+/* Highlighted/in-range dates */
+.dash-datepicker-calendar-date-highlighted {
+    background-color: rgba(255, 121, 64, 0.25) !important;
+    color: var(--text-primary) !important;
+}
+
+.dash-datepicker-calendar-date-highlighted:hover {
+    background-color: rgba(255, 121, 64, 0.4) !important;
+}
+
+/* Padding/empty cells */
+.dash-datepicker-calendar-padding {
+    background-color: transparent !important;
+}
+
+/* Month dropdown button inside calendar */
+.dash-datepicker-controls .dash-dropdown-wrapper .dash-dropdown {
+    background-color: #252d3d !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 6px !important;
+    color: var(--text-primary) !important;
+    padding: 6px 10px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+}
+
+.dash-datepicker-controls .dash-dropdown-wrapper .dash-dropdown:hover {
+    border-color: var(--accent-orange) !important;
+}
+
+.dash-datepicker-controls .dash-dropdown-value {
+    color: var(--text-primary) !important;
+}
+
+.dash-datepicker-controls .dash-dropdown-trigger-icon {
+    color: var(--accent-orange) !important;
+}
+
+/* Year input container inside calendar */
+.dash-datepicker-controls .dash-input-container.dash-input {
+    background-color: #252d3d !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 4px !important;
+}
+
+/* Year input element */
+.dash-datepicker-controls .dash-input-element {
+    background-color: transparent !important;
+    color: var(--text-primary) !important;
+    border: none !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    width: 60px !important;
+    text-align: center !important;
+    outline: none !important;
+}
+
+/* Year stepper buttons */
+.dash-datepicker-controls .dash-input-stepper {
+    background-color: transparent !important;
+    border: none !important;
+    color: var(--text-muted) !important;
+    cursor: pointer !important;
+    padding: 4px 6px !important;
+    font-size: 14px !important;
+    transition: color 0.15s ease !important;
+}
+
+.dash-datepicker-controls .dash-input-stepper:hover {
+    color: var(--accent-orange) !important;
+}
+
+/* Dropdown custom styling - Dash 4.x native */
+
+/* Dropdown wrapper */
+.dash-dropdown-wrapper {
+    background-color: #252d3d !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px !important;
+    transition: border-color 0.15s ease !important;
+    height: 42px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.dash-dropdown-wrapper:hover {
+    border-color: var(--accent-orange) !important;
+}
+
+/* Dropdown button */
+.dash-dropdown-wrapper .dash-dropdown {
+    background-color: transparent !important;
+    border: none !important;
+    color: var(--text-primary) !important;
+    padding: 0 12px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Dropdown value text */
+.dash-dropdown-wrapper .dash-dropdown-value {
+    color: var(--text-primary) !important;
+    flex: 1 !important;
+    text-align: left !important;
+}
+
+.dash-dropdown-wrapper .dash-dropdown-value-item span {
+    color: var(--text-primary) !important;
+}
+
+/* Clear button (X) */
+.dash-dropdown-wrapper .dash-dropdown-clear {
+    color: var(--text-muted) !important;
+    display: flex !important;
+    align-items: center !important;
+    transition: color 0.15s ease !important;
+}
+
+.dash-dropdown-wrapper .dash-dropdown-clear:hover {
+    color: var(--accent-orange) !important;
+}
+
+/* Dropdown trigger icon (caret) */
+.dash-dropdown-wrapper .dash-dropdown-trigger-icon {
+    color: var(--accent-orange) !important;
+    flex-shrink: 0 !important;
+}
+
+/* Dropdown menu popup */
+.dash-dropdown-content {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4) !important;
+    padding: 8px 0 !important;
+}
+
+/* Dropdown menu items */
+.dash-dropdown-content .dash-dropdown-item {
+    background-color: transparent !important;
+    color: var(--text-primary) !important;
+    padding: 10px 16px !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+    transition: background-color 0.15s ease !important;
+}
+
+.dash-dropdown-content .dash-dropdown-item:hover {
+    background-color: #252d3d !important;
+}
+
+.dash-dropdown-content .dash-dropdown-item[aria-selected="true"] {
+    background-color: rgba(255, 121, 64, 0.2) !important;
+    color: var(--accent-orange) !important;
+    font-weight: 600 !important;
+}
+
+/* Graph styling */
+.js-plotly-plot .plotly {
+    background-color: transparent !important;
+}
+
+.js-plotly-plot .plotly .main-svg {
+    background: transparent !important;
+}
+
+/* Enhanced card styling */
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Card top accent line animation */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-orange), var(--accent-blue));
+    opacity: 0.6;
+}
+
+/* Savings card special styling with green glow */
+.card[style*="rgba(61, 220, 132"] {
+    position: relative;
+}
+
+.card[style*="rgba(61, 220, 132"]::before {
+    background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
+    opacity: 1;
+}
+
+.card[style*="rgba(61, 220, 132"]:hover {
+    box-shadow: 0 8px 30px rgba(61, 220, 132, 0.15);
+}
+
+/* KPI value animation */
+.card h2 {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Table styling enhancements */
+#optimization-table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#optimization-table .dash-spreadsheet-container .dash-spreadsheet-inner th {
+    background-color: #252d3d !important;
+    color: var(--accent-orange) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px;
+}
+
+#optimization-table .dash-spreadsheet-container .dash-spreadsheet-inner td {
+    transition: background-color 0.15s ease;
+}
+
+#optimization-table .dash-spreadsheet-container .dash-spreadsheet-inner tr:hover td {
+    background-color: #252d3d !important;
+}
+
+/* Scrollbar styling - brighter accent */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-page);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 5px;
+    border: 2px solid var(--bg-page);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-orange);
+}
+
+/* Typography improvements */
+h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.3px;
+    font-weight: 600;
+}
+
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+/* Button and interactive element hover states */
+button, select, input {
+    outline: none !important;
+}
+
+button:focus, select:focus, input:focus {
+    box-shadow: 0 0 0 2px rgba(255, 121, 64, 0.3) !important;
+}
+
+/* Table cell links */
+.cell-link {
+    color: var(--accent-orange);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.cell-link:hover {
+    text-decoration: underline;
+    color: var(--accent-orange);
+}
+
+/* Animation for header */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ensure smooth graph rendering */
+.js-plotly-plot {
+    transition: opacity 0.3s ease;
+}
+
+/* Loading state enhancement */
+._dash-loading {
+    background-color: var(--bg-page) !important;
+}
+
+._dash-loading-callback {
+    background-color: var(--accent-orange) !important;
+}
